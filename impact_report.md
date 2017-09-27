@@ -4,7 +4,7 @@
 今回のレポートに含まれるデータは以下。
 
 - 取得期間： `r min(causal_impact_web_access$time)`から`r max(causal_impact_web_access$time)`
-- ユーザー数合計： `r format(sum(causal_impact_web_access_raw$users), big.mark=".")`
+- ユーザー数合計： `r format(sum(causal_impact_web_access_raw$users), big.mark=",")`
 - 国数： `r n_distinct(causal_impact_web_access_raw$country)`
 
 ## キャンペーン内容
@@ -34,8 +34,14 @@ __キャンペーンを実施しなかった場合の算出について__
 ```
 
 ### ノイズを取り除いた結果
-このキャンペーンは`r max(causal_impact_web_access$time)`時点でユーザー約`r format(sum(causal_impact_web_access_2_copy_1$獲得数), big.mark=".")`人の獲得に貢献した。  
-信頼区間は平均して`r format(sum(causal_impact_web_access_2_copy_1$信頼区間_下限), big.mark=".")`~`r format(sum(causal_impact_web_access_2_copy_1$信頼区間_上限), big.mark=".")`であり、この範囲より外にある確率は5%以下である。
+このキャンペーンは`r max(causal_impact_web_access$time)`時点でユーザー約`r format(sum(causal_impact_web_access_2_copy_1$獲得数), big.mark=",")`人の獲得に貢献した。  
+信頼区間は平均して`r format(sum(causal_impact_web_access_2_copy_1$信頼区間_下限), big.mark=",")`~`r format(sum(causal_impact_web_access_2_copy_1$信頼区間_上限), big.mark=",")`であり、この範囲より外にある確率は5%以下である。
 ```{exploratory}
 /causal_impact_web_access/viz/4
 ```
+
+---
+
+## その他
+下記に今回使用したデータ一式と、マークダウンをアップしたので適宜使用する。  
+https://github.com/ke-to/impact-analytics
